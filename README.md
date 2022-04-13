@@ -7,6 +7,7 @@
  WebGL: Follow either of following links to play this game.
  
  1: https://thegenes1s.itch.io/afterlife-fps
+ 
  2:
  
  **Instructions**
