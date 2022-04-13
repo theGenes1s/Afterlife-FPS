@@ -8,7 +8,7 @@
  
  1: https://thegenes1s.itch.io/afterlife-fps
  
- 2:
+ 2: https://play.unity.com/mg/other/afterlife-fps-1
  
  **Windows Build:** Follow the link below and download folder as zip. After download ectract and run Afterlife- FPS.exe
  
