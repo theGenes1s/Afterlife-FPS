@@ -14,8 +14,6 @@
  
  Make sure you have a fast internet connection to avoid slow loading time.
  
- A First Person Shooting game. 
- 
  Use WASD to control Player Movement and left mouse Click to shoot. 
  
  Spacebar is for Jump and Left Control is for locking and unlocking cursor in gameplay. 
