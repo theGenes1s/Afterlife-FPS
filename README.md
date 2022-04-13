@@ -10,6 +10,10 @@
  
  2:
  
+ **Windows Build:** Follow the link below and download folder as zip. After download ectract and run Afterlife- FPS.exe
+ 
+ https://github.com/theGenes1s/Afterlife-FPS/tree/main/Build_Windows_x64
+ 
  **Instructions**
  
  Make sure you have a fast internet connection to avoid slow loading time.
