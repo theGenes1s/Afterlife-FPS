@@ -16,6 +16,8 @@
  
  **WebGL Instructions**
  
+ For better experiance switch to full screen using the the button at bottom right corner.
+ 
  Make sure you have a fast internet connection to avoid slow loading time.
  
  Use WASD to control Player Movement and left mouse Click to shoot. 
