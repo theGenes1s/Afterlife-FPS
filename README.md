@@ -10,9 +10,11 @@
  
  2: https://play.unity.com/mg/other/afterlife-fps-1
  
+ 
  **Windows Build:** Follow the link below and download the released zip. After download extract and run Afterlife- FPS.exe
  
  https://github.com/theGenes1s/Afterlife-FPS/releases
+ 
  
  **WebGL Instructions**
  
