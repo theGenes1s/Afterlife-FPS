@@ -14,7 +14,7 @@
  
  https://github.com/theGenes1s/Afterlife-FPS/tree/main/Build_Windows_x64
  
- **Instructions**
+ **WebGL Instructions**
  
  Make sure you have a fast internet connection to avoid slow loading time.
  
