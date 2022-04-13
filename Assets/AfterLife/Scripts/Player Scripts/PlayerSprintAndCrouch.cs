@@ -16,7 +16,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private PlayerFootSteps player_FootSteps;
     private float sprint_Volume = 1f;
     private float crouch_Volume = 0.1f;
-    private float walk_Volume_Min = 0.2f, walk_Volume_Max = 0.6f;
+    private float walk_Volume_Min = 0.2f,
+        walk_Volume_Max = 0.6f;
     private float walk_Step_Distance = 0.4f;
     private float sprint_Step_Distance = 0.3f;
     private float crouch_Step_Distance = 0.5f;
@@ -24,7 +25,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private PlayerStats player_Stats;
     private float sprintValue = 100f;
     private float sprintThreshold = 10f;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -36,13 +36,14 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         player_FootSteps = GetComponentInChildren<PlayerFootSteps>();
         player_Stats = GetComponent<PlayerStats>();
     }
+
     void Start()
     {
         player_FootSteps.volume_Min = walk_Volume_Min;
         player_FootSteps.volume_Max = walk_Volume_Max;
         player_FootSteps.step_Distance = walk_Step_Distance;
-
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,7 +53,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     void Sprint()
     {
-        // if we have mana left and we are pressing the sprint button
+        // if we have stamina left and we are pressing the sprint button
         if (sprintValue > 0f)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !is_Crouching && playerMovement.is_Moving)
@@ -71,7 +72,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             player_FootSteps.step_Distance = walk_Step_Distance;
             player_FootSteps.volume_Min = walk_Volume_Min;
             player_FootSteps.volume_Max = walk_Volume_Max;
-
         }
         if (Input.GetKey(KeyCode.LeftShift) && !is_Crouching)
         {
@@ -86,7 +86,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 player_FootSteps.volume_Max = walk_Volume_Max;
             }
             player_Stats.Display_staminaStats(sprintValue);
-
         }
         else
         {
@@ -104,7 +103,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     void Crouch()
     {
-
         if (Input.GetKeyDown(KeyCode.C))
         {
             //  if crouching stand-up
@@ -132,7 +130,5 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 is_Crouching = true;
             }
         } //if we press C, we crouch
-
     } //Crouching
-
 } //class

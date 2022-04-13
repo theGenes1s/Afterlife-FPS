@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
     private WeaponController weaponController;
     public float fireRate = 15f;
     private float nextTimeToFire;
@@ -24,29 +23,23 @@ public class PlayerAttack : MonoBehaviour
     {
         weaponController = GetComponent<WeaponController>();
 
-        zoomCameraAnim = GameObject.FindGameObjectWithTag(Tags.ZOOM_CAMERA).GetComponent<Animator>();
+        zoomCameraAnim = GameObject
+            .FindGameObjectWithTag(Tags.ZOOM_CAMERA)
+            .GetComponent<Animator>();
 
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
 
         mainCam = Camera.main;
-
-
-
-
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
         WeaponShoot();
         ScopeZoom();
-
     } // end of Update
 
     void WeaponShoot()
@@ -61,29 +54,22 @@ public class PlayerAttack : MonoBehaviour
                 weaponController.GetCurrentWeapon().ShootAnimation();
                 BulletFired();
             }
-
         }
         //if player is holding another weapon e.g single shot
         else
         {
-
-
             if (Input.GetMouseButtonDown(0))
             {
-
-
                 // for Shoot
                 if (weaponController.GetCurrentWeapon().bulletType == WeaponBulletType.BULLET)
                 {
                     weaponController.GetCurrentWeapon().ShootAnimation();
                     BulletFired();
                 }
-
-
-
             } // if input mouse button down 0
         } // end of else
     } //weapon shoot
+
     void ScopeZoom()
     {
         // zoomed AIM
@@ -100,13 +86,11 @@ public class PlayerAttack : MonoBehaviour
                 zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
                 crosshair.SetActive(true);
             } // end of if input mouse button up 1
-
         }
     } // zoom in and out
 
     void BulletFired()
     {
-
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
@@ -115,9 +99,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 print("we hit : " + hit.transform.gameObject.name);
                 hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
-
             }
         }
-
     } // end of bullet fired
 } //class

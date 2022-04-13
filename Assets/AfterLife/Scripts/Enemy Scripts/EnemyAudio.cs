@@ -5,36 +5,40 @@ using UnityEngine;
 public class EnemyAudio : MonoBehaviour
 {
     private AudioSource audioSource;
-   [SerializeField]
-    private AudioClip scream_Clip , die_Clip ;
- [SerializeField]
- private AudioClip [] attack_Clips;
 
- void Awake(){
-        audioSource = GetComponent<AudioSource>();
- }
+    [SerializeField]
+    private AudioClip scream_Clip,
+        die_Clip;
 
- public void Play_ScreamSound(){
-     audioSource.clip = scream_Clip;
-     audioSource.Play();}
-     public void Play_AttackSound(){
-         int randomIndex = Random.Range(0,attack_Clips.Length);
-         audioSource.clip = attack_Clips[randomIndex];
-         audioSource.Play();
-     }
-     public void Play_DeadSound(){
-         audioSource.clip = die_Clip;
-         audioSource.Play();
-     }
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private AudioClip[] attack_Clips;
+
+    void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Below functions to play enemy reaction sounds when player attacks OR enemy dies.
+    /// These code blocks are self explanatory.
+    /// </summary>
+
+    public void Play_ScreamSound()
     {
-        
+        audioSource.clip = scream_Clip;
+        audioSource.Play();
+    }
+
+    public void Play_AttackSound()
+    {
+        int randomIndex = Random.Range(0, attack_Clips.Length);
+        audioSource.clip = attack_Clips[randomIndex];
+        audioSource.Play();
+    }
+
+    public void Play_DeadSound()
+    {
+        audioSource.clip = die_Clip;
+        audioSource.Play();
     }
 }

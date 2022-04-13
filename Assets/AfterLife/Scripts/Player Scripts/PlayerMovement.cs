@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     private CharacterController character_Controller;
     private Vector3 move_Direction;
     public float speed = 2.5f;
@@ -25,22 +24,23 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
         LockAnDUnlockCursor();
     }
+
     void MovePlayer()
     {
-        move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f,
-         Input.GetAxis(Axis.VERTICAL));
+        move_Direction = new Vector3(
+            Input.GetAxis(Axis.HORIZONTAL),
+            0f,
+            Input.GetAxis(Axis.VERTICAL)
+        );
         move_Direction = transform.TransformDirection(move_Direction);
         move_Direction *= speed * Time.deltaTime;
         ApplyGravity();
         character_Controller.Move(move_Direction);
         is_Moving = true;
-
-
     } //movement of player
 
     void ApplyGravity()
     {
-
         vertical_Velocity -= gravity * Time.deltaTime;
         PlayerJump(); //jump
         vertical_Velocity -= gravity * Time.deltaTime;
@@ -53,9 +53,8 @@ public class PlayerMovement : MonoBehaviour
         {
             vertical_Velocity = jump_Force;
         }
-
-
     } //jump of player
+
     void LockAnDUnlockCursor()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -75,4 +74,3 @@ public class PlayerMovement : MonoBehaviour
         }
     } // Lock and Unlock Cursor
 }
-

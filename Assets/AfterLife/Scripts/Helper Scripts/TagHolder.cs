@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to hold tags.
+/// Better to use this approach to prevent conflicts with other scripts.
+/// </summary>
 public class Axis
 {
     public const string HORIZONTAL = "Horizontal";
     public const string VERTICAL = "Vertical";
-
-
 }
-public class MouseAxis
+
+public class MouseAxis 
 {
     public const string MOUSE_Y = "Mouse Y";
     public const string MOUSE_X = "Mouse X";
 }
 
-public class AnimationTags
+public class AnimationTags //Aimations related tags.
 {
     public const string ZOOM_IN_ANIM = "ZoomIn";
     public const string ZOOM_OUT_ANIM = "ZoomOut";
@@ -28,8 +31,8 @@ public class AnimationTags
     public const string ATTACK_TRIGGER = "Attack";
     public const string DEAD_TRIGGER = "Dead";
     public const string HIT_TRIGGER = "Hit";
-
 }
+
 public class Tags
 {
     public const string LOOK_ROOT = "Look Root";
@@ -39,5 +42,4 @@ public class Tags
 
     public const string PLAYER_TAG = "Player";
     public const string ENEMY_TAG = "Enemy";
-
 }

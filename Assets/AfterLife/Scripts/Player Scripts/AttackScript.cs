@@ -9,15 +9,11 @@ public class AttackScript : MonoBehaviour
     public float radius =1f;
     public LayerMask layerMask; 
 
+    /// <summary>
+    /// Fist check layer via layermask to check enemy layer and apply
+    /// damage to enemy.
+    /// </summary>
     
-    // Start is called before the first frame update
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, radius, layerMask);

@@ -6,24 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Main menu canvas Play Button
+    /// </summary>
     public void Play()
     {
-        SceneManager.LoadScene("Main");
-    }
+        SceneManager.LoadScene("Main"); //load main game scene.
 
+    /// <summary>
+    /// Main menu canvas Quit Button
+    /// /// </summary>
     public void Quit()
     {
         Application.Quit();

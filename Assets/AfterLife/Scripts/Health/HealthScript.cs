@@ -6,35 +6,36 @@ using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
-
     private EnemyAnimator enemy_Anim;
     private NavMeshAgent navAgent;
     private EnemyController enemy_Controller;
 
     public float health = 100f;
 
-    public bool is_Player, is_Drake, is_Vamp;
+    public bool is_Player,
+        is_Drake,
+        is_Vamp;
 
     private bool is_Dead;
 
     private EnemyAudio enemyAudio;
 
     private PlayerStats player_Stats;
+
     [SerializeField]
     private Button pause_Button;
+
     [SerializeField]
     private Button resume_Button;
-    [SerializeField]
 
+    [SerializeField]
     private Text title_Text;
-    
 
     [SerializeField]
     private Button quit_Button;
 
     void Awake()
     {
-
         if (is_Drake || is_Vamp)
         {
             enemy_Anim = GetComponent<EnemyAnimator>();
@@ -47,31 +48,24 @@ public class HealthScript : MonoBehaviour
 
         if (is_Player)
         {
+            //Assignments to the reference GameObjects.
             player_Stats = GetComponent<PlayerStats>();
             pause_Button = GameObject.Find("Pause Button").GetComponent<Button>();
             resume_Button = GameObject.Find("ResumeButton").GetComponent<Button>();
             title_Text = GameObject.Find("Title").GetComponent<Text>();
             quit_Button = GameObject.Find("Quit Button").GetComponent<Button>();
-            
         }
-
-
     }
 
-    void Update()
-    {
-
-    }
+    void Update() { }
 
     public void ApplyDamage(float damage)
     {
-
         // if player dead return
         if (is_Dead)
             return;
 
         health -= damage;
-
 
         if (is_Player)
         {
@@ -89,20 +83,16 @@ public class HealthScript : MonoBehaviour
 
         if (health <= 0f)
         {
-
             PlayerDied();
 
             is_Dead = true;
         }
-
     } // apply damage
 
     void PlayerDied()
     {
-
         if (is_Vamp)
         {
-
             navAgent.velocity = Vector3.zero;
             navAgent.isStopped = true;
             enemy_Controller.enabled = false;
@@ -112,13 +102,10 @@ public class HealthScript : MonoBehaviour
             StartCoroutine(DeadSound());
             // EnemyManager spawn more enemies
             EnemyManager.instance.EnemyDied(true);
-
-
         }
 
         if (is_Drake)
         {
-
             navAgent.velocity = Vector3.zero;
             navAgent.isStopped = true;
             enemy_Controller.enabled = false;
@@ -128,13 +115,10 @@ public class HealthScript : MonoBehaviour
             StartCoroutine(DeadSound());
             // EnemyManager spawn more enemies
             EnemyManager.instance.EnemyDied(false);
-
-
         }
 
         if (is_Player)
         {
-
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY_TAG);
 
             for (int i = 0; i < enemies.Length; i++)
@@ -148,57 +132,52 @@ public class HealthScript : MonoBehaviour
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<WeaponController>().GetCurrentWeapon().gameObject.SetActive(false);
-
         }
 
         if (tag == Tags.PLAYER_TAG)
         {
-
-            Invoke("RestartGame", 3f);
-            
-            
-
+            Invoke("RestartGame", 3f); //when player is dead game restarts after 3 seconds of wait time.
         }
         else
         {
-
             Invoke("TurnOffGameObject", 3f);
-
         }
-
     } // player died
+
+
     /// <summary>
-    /// SOme last minute changes to the game reagrding UI
+    /// Some last minute changes to the game regarding UI
+    /// Methods like restart, quit, pause, resume are part of this block 
+    /// Which is self explanatory.
     /// </summary>
+    /// 
+    /// 
     public void RestartGame()
     {
-
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
     }
+
     public void PauseGame()
     {
-
         Time.timeScale = 0f;
         pause_Button.gameObject.SetActive(false);
         resume_Button.gameObject.SetActive(true);
         title_Text.gameObject.SetActive(true);
         quit_Button.gameObject.SetActive(true);
-
     }
+
     public void ResumeGame()
     {
-
         Time.timeScale = 1f;
         resume_Button.gameObject.SetActive(false);
         pause_Button.gameObject.SetActive(true);
         title_Text.gameObject.SetActive(false);
         quit_Button.gameObject.SetActive(false);
-
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); //quit the game 
     }
 
     void TurnOffGameObject()
@@ -211,65 +190,4 @@ public class HealthScript : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         enemyAudio.Play_DeadSound();
     }
-
-
 } // class
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,9 +10,6 @@ public class WeaponController : MonoBehaviour
 
     private int currentWeaponIndex;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,16 +32,12 @@ public class WeaponController : MonoBehaviour
         {
             TurnOnSelectedWeapon(2);
         }
-
-
     } //update
 
     public void TurnOnSelectedWeapon(int weaponIndex)
     {
-
         if (currentWeaponIndex == weaponIndex)
             return;
-
 
         //turn off current weapon
         weapons[currentWeaponIndex].gameObject.SetActive(false);
@@ -52,26 +45,26 @@ public class WeaponController : MonoBehaviour
         weapons[weaponIndex].gameObject.SetActive(true);
         //update current weapon index
         currentWeaponIndex = weaponIndex;
-
-    }//turn on selected weapon
+    } //turn on selected weapon
 
     public WeaponManager GetCurrentWeapon()
     {
         return weapons[currentWeaponIndex];
     }
 
+    //Switch Weapons using inventory button at the right bottom of screen.
     public void RevButton()
     {
         TurnOnSelectedWeapon(0);
     }
+
     public void ShotgunButton()
     {
         TurnOnSelectedWeapon(1);
     }
+
     public void AKButton()
     {
         TurnOnSelectedWeapon(2);
     }
-
-
 } //class
