@@ -8,24 +8,20 @@ public class EnemyAnimator : MonoBehaviour
     private Animator anim;
 
     
-    // Start is called before the first frame update
     void Awake()
     {
      anim = GetComponent<Animator>();   
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Walk (bool walk)
+/// <summary>
+/// Adjusting enemy animations according to the parameters.
+/// </summary>
+/// <param name="walk"></param>
+    public void Walk (bool walk) // enemy walk animation
     {
         anim.SetBool(AnimationTags.WALK_PARAMETER, walk);
     }
 
-    public void Run (bool run)
+    public void Run (bool run) //enemy run
     {
         anim.SetBool(AnimationTags.RUN_PARAMETER, run);
     }
