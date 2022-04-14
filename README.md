@@ -1,6 +1,8 @@
 # Afterlife -FPS 
  A First Person Shooting Game for Gametrain's Capstone Project.
  
+ **Youtube Gamplay:**https://youtu.be/fBSTaImCn88
+ 
  **Source Code Direct Link:**
  https://github.com/theGenes1s/Afterlife-FPS/tree/main/Assets/AfterLife/Scripts
  
